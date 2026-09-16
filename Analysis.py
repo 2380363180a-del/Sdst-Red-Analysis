@@ -90,4 +90,17 @@ bars2 = ax2.barh(y - height/2, avg_price.values[::-1], height=height,
 for bar in bars2:
     width = bar.get_width()
     ax2.text(width + 0.5, bar.get_y() + bar.get_height()/2,
-             f'{width:.1f}'),
+             f'{width:.1f}', va='center', fontsize=9, color='steelblue')
+
+ax2.set_xlabel('Average Price', color='steelblue', fontsize=12)
+ax2.tick_params(axis='x', labelcolor='steelblue')
+
+plt.title('Top 20 Regions: Frequency (Red) vs Average Price (Blue)', fontsize=14, pad=20)
+plt.tight_layout()
+
+# 保存图片
+plt.savefig('top20_regions.png', dpi=150, bbox_inches='tight')
+plt.close()
+print("条形图已保存为：top20_regions.png")
+
+print("\n全部完成！请在左侧文件列表中查看 wordcloud.png 和 top20_regions.png")
